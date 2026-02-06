@@ -248,7 +248,7 @@ function M.parsed_json_to_results(data, output_file, consoleOut)
   local tests = {}
 
   for _, testResult in pairs(data.testResults) do
-    local testFn = testResult.name
+    local testFn = vim.fs.normalize(testResult.name)
 
     for _, assertionResult in pairs(testResult.assertionResults) do
       local status, name = assertionResult.status, assertionResult.title
